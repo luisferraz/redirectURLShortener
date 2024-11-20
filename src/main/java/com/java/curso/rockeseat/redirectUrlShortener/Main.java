@@ -20,9 +20,9 @@ public class Main implements RequestHandler<Map<String, Object>, Map<String, Obj
     public Map<String, Object> handleRequest(Map<String, Object> input, Context context) {
 
         String pathParameters = (String) input.get("rawPath");
-        String shortUrlCode = (String) pathParameters.replace("/", "");
+        String shortUrlCode = pathParameters.replace("/", "");
 
-        if (shortUrlCode == null || shortUrlCode.isEmpty()) {
+        if (shortUrlCode.isEmpty()) {
             throw new IllegalArgumentException("Invalid input: 'shortUrlCode' is required.");
         }
 
